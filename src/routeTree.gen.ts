@@ -19,6 +19,11 @@ import { Route as DevicesRouteImport } from './routes/devices'
 import { Route as AlertsRouteImport } from './routes/alerts'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AdminIndexRouteImport } from './routes/admin.index'
+import { Route as AdminTechnicianRouteImport } from './routes/admin.technician'
+import { Route as AdminStateRouteImport } from './routes/admin.state'
+import { Route as AdminSignupRouteImport } from './routes/admin.signup'
+import { Route as AdminDistrictRouteImport } from './routes/admin.district'
+import { Route as AdminDevicesRouteImport } from './routes/admin.devices'
 
 const UsersRoute = UsersRouteImport.update({
   id: '/users',
@@ -70,6 +75,31 @@ const AdminIndexRoute = AdminIndexRouteImport.update({
   path: '/admin/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AdminTechnicianRoute = AdminTechnicianRouteImport.update({
+  id: '/admin/technician',
+  path: '/admin/technician',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminStateRoute = AdminStateRouteImport.update({
+  id: '/admin/state',
+  path: '/admin/state',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminSignupRoute = AdminSignupRouteImport.update({
+  id: '/admin/signup',
+  path: '/admin/signup',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminDistrictRoute = AdminDistrictRouteImport.update({
+  id: '/admin/district',
+  path: '/admin/district',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminDevicesRoute = AdminDevicesRouteImport.update({
+  id: '/admin/devices',
+  path: '/admin/devices',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -81,6 +111,11 @@ export interface FileRoutesByFullPath {
   '/signup': typeof SignupRoute
   '/status': typeof StatusRoute
   '/users': typeof UsersRoute
+  '/admin/devices': typeof AdminDevicesRoute
+  '/admin/district': typeof AdminDistrictRoute
+  '/admin/signup': typeof AdminSignupRoute
+  '/admin/state': typeof AdminStateRoute
+  '/admin/technician': typeof AdminTechnicianRoute
   '/admin/': typeof AdminIndexRoute
 }
 export interface FileRoutesByTo {
@@ -93,6 +128,11 @@ export interface FileRoutesByTo {
   '/signup': typeof SignupRoute
   '/status': typeof StatusRoute
   '/users': typeof UsersRoute
+  '/admin/devices': typeof AdminDevicesRoute
+  '/admin/district': typeof AdminDistrictRoute
+  '/admin/signup': typeof AdminSignupRoute
+  '/admin/state': typeof AdminStateRoute
+  '/admin/technician': typeof AdminTechnicianRoute
   '/admin': typeof AdminIndexRoute
 }
 export interface FileRoutesById {
@@ -106,6 +146,11 @@ export interface FileRoutesById {
   '/signup': typeof SignupRoute
   '/status': typeof StatusRoute
   '/users': typeof UsersRoute
+  '/admin/devices': typeof AdminDevicesRoute
+  '/admin/district': typeof AdminDistrictRoute
+  '/admin/signup': typeof AdminSignupRoute
+  '/admin/state': typeof AdminStateRoute
+  '/admin/technician': typeof AdminTechnicianRoute
   '/admin/': typeof AdminIndexRoute
 }
 export interface FileRouteTypes {
@@ -120,6 +165,11 @@ export interface FileRouteTypes {
     | '/signup'
     | '/status'
     | '/users'
+    | '/admin/devices'
+    | '/admin/district'
+    | '/admin/signup'
+    | '/admin/state'
+    | '/admin/technician'
     | '/admin/'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -132,6 +182,11 @@ export interface FileRouteTypes {
     | '/signup'
     | '/status'
     | '/users'
+    | '/admin/devices'
+    | '/admin/district'
+    | '/admin/signup'
+    | '/admin/state'
+    | '/admin/technician'
     | '/admin'
   id:
     | '__root__'
@@ -144,6 +199,11 @@ export interface FileRouteTypes {
     | '/signup'
     | '/status'
     | '/users'
+    | '/admin/devices'
+    | '/admin/district'
+    | '/admin/signup'
+    | '/admin/state'
+    | '/admin/technician'
     | '/admin/'
   fileRoutesById: FileRoutesById
 }
@@ -157,6 +217,11 @@ export interface RootRouteChildren {
   SignupRoute: typeof SignupRoute
   StatusRoute: typeof StatusRoute
   UsersRoute: typeof UsersRoute
+  AdminDevicesRoute: typeof AdminDevicesRoute
+  AdminDistrictRoute: typeof AdminDistrictRoute
+  AdminSignupRoute: typeof AdminSignupRoute
+  AdminStateRoute: typeof AdminStateRoute
+  AdminTechnicianRoute: typeof AdminTechnicianRoute
   AdminIndexRoute: typeof AdminIndexRoute
 }
 
@@ -232,6 +297,41 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/admin/technician': {
+      id: '/admin/technician'
+      path: '/admin/technician'
+      fullPath: '/admin/technician'
+      preLoaderRoute: typeof AdminTechnicianRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/state': {
+      id: '/admin/state'
+      path: '/admin/state'
+      fullPath: '/admin/state'
+      preLoaderRoute: typeof AdminStateRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/signup': {
+      id: '/admin/signup'
+      path: '/admin/signup'
+      fullPath: '/admin/signup'
+      preLoaderRoute: typeof AdminSignupRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/district': {
+      id: '/admin/district'
+      path: '/admin/district'
+      fullPath: '/admin/district'
+      preLoaderRoute: typeof AdminDistrictRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/devices': {
+      id: '/admin/devices'
+      path: '/admin/devices'
+      fullPath: '/admin/devices'
+      preLoaderRoute: typeof AdminDevicesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -245,6 +345,11 @@ const rootRouteChildren: RootRouteChildren = {
   SignupRoute: SignupRoute,
   StatusRoute: StatusRoute,
   UsersRoute: UsersRoute,
+  AdminDevicesRoute: AdminDevicesRoute,
+  AdminDistrictRoute: AdminDistrictRoute,
+  AdminSignupRoute: AdminSignupRoute,
+  AdminStateRoute: AdminStateRoute,
+  AdminTechnicianRoute: AdminTechnicianRoute,
   AdminIndexRoute: AdminIndexRoute,
 }
 export const routeTree = rootRouteImport
