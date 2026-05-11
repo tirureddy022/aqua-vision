@@ -9,38 +9,280 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as UsersRouteImport } from './routes/users'
+import { Route as StatusRouteImport } from './routes/status'
+import { Route as SignupRouteImport } from './routes/signup'
+import { Route as ReportsRouteImport } from './routes/reports'
+import { Route as MapsRouteImport } from './routes/maps'
+import { Route as LoginRouteImport } from './routes/login'
+import { Route as DevicesRouteImport } from './routes/devices'
+import { Route as AlertsRouteImport } from './routes/alerts'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AdminIndexRouteImport } from './routes/admin.index'
+import { Route as AdminTechnicianRouteImport } from './routes/admin.technician'
+import { Route as AdminStateRouteImport } from './routes/admin.state'
+import { Route as AdminSignupRouteImport } from './routes/admin.signup'
+import { Route as AdminDistrictRouteImport } from './routes/admin.district'
+import { Route as AdminDevicesRouteImport } from './routes/admin.devices'
 
+const UsersRoute = UsersRouteImport.update({
+  id: '/users',
+  path: '/users',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const StatusRoute = StatusRouteImport.update({
+  id: '/status',
+  path: '/status',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SignupRoute = SignupRouteImport.update({
+  id: '/signup',
+  path: '/signup',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ReportsRoute = ReportsRouteImport.update({
+  id: '/reports',
+  path: '/reports',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MapsRoute = MapsRouteImport.update({
+  id: '/maps',
+  path: '/maps',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LoginRoute = LoginRouteImport.update({
+  id: '/login',
+  path: '/login',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DevicesRoute = DevicesRouteImport.update({
+  id: '/devices',
+  path: '/devices',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AlertsRoute = AlertsRouteImport.update({
+  id: '/alerts',
+  path: '/alerts',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AdminIndexRoute = AdminIndexRouteImport.update({
+  id: '/admin/',
+  path: '/admin/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminTechnicianRoute = AdminTechnicianRouteImport.update({
+  id: '/admin/technician',
+  path: '/admin/technician',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminStateRoute = AdminStateRouteImport.update({
+  id: '/admin/state',
+  path: '/admin/state',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminSignupRoute = AdminSignupRouteImport.update({
+  id: '/admin/signup',
+  path: '/admin/signup',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminDistrictRoute = AdminDistrictRouteImport.update({
+  id: '/admin/district',
+  path: '/admin/district',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminDevicesRoute = AdminDevicesRouteImport.update({
+  id: '/admin/devices',
+  path: '/admin/devices',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/alerts': typeof AlertsRoute
+  '/devices': typeof DevicesRoute
+  '/login': typeof LoginRoute
+  '/maps': typeof MapsRoute
+  '/reports': typeof ReportsRoute
+  '/signup': typeof SignupRoute
+  '/status': typeof StatusRoute
+  '/users': typeof UsersRoute
+  '/admin/devices': typeof AdminDevicesRoute
+  '/admin/district': typeof AdminDistrictRoute
+  '/admin/signup': typeof AdminSignupRoute
+  '/admin/state': typeof AdminStateRoute
+  '/admin/technician': typeof AdminTechnicianRoute
+  '/admin/': typeof AdminIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/alerts': typeof AlertsRoute
+  '/devices': typeof DevicesRoute
+  '/login': typeof LoginRoute
+  '/maps': typeof MapsRoute
+  '/reports': typeof ReportsRoute
+  '/signup': typeof SignupRoute
+  '/status': typeof StatusRoute
+  '/users': typeof UsersRoute
+  '/admin/devices': typeof AdminDevicesRoute
+  '/admin/district': typeof AdminDistrictRoute
+  '/admin/signup': typeof AdminSignupRoute
+  '/admin/state': typeof AdminStateRoute
+  '/admin/technician': typeof AdminTechnicianRoute
+  '/admin': typeof AdminIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/alerts': typeof AlertsRoute
+  '/devices': typeof DevicesRoute
+  '/login': typeof LoginRoute
+  '/maps': typeof MapsRoute
+  '/reports': typeof ReportsRoute
+  '/signup': typeof SignupRoute
+  '/status': typeof StatusRoute
+  '/users': typeof UsersRoute
+  '/admin/devices': typeof AdminDevicesRoute
+  '/admin/district': typeof AdminDistrictRoute
+  '/admin/signup': typeof AdminSignupRoute
+  '/admin/state': typeof AdminStateRoute
+  '/admin/technician': typeof AdminTechnicianRoute
+  '/admin/': typeof AdminIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/alerts'
+    | '/devices'
+    | '/login'
+    | '/maps'
+    | '/reports'
+    | '/signup'
+    | '/status'
+    | '/users'
+    | '/admin/devices'
+    | '/admin/district'
+    | '/admin/signup'
+    | '/admin/state'
+    | '/admin/technician'
+    | '/admin/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/alerts'
+    | '/devices'
+    | '/login'
+    | '/maps'
+    | '/reports'
+    | '/signup'
+    | '/status'
+    | '/users'
+    | '/admin/devices'
+    | '/admin/district'
+    | '/admin/signup'
+    | '/admin/state'
+    | '/admin/technician'
+    | '/admin'
+  id:
+    | '__root__'
+    | '/'
+    | '/alerts'
+    | '/devices'
+    | '/login'
+    | '/maps'
+    | '/reports'
+    | '/signup'
+    | '/status'
+    | '/users'
+    | '/admin/devices'
+    | '/admin/district'
+    | '/admin/signup'
+    | '/admin/state'
+    | '/admin/technician'
+    | '/admin/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AlertsRoute: typeof AlertsRoute
+  DevicesRoute: typeof DevicesRoute
+  LoginRoute: typeof LoginRoute
+  MapsRoute: typeof MapsRoute
+  ReportsRoute: typeof ReportsRoute
+  SignupRoute: typeof SignupRoute
+  StatusRoute: typeof StatusRoute
+  UsersRoute: typeof UsersRoute
+  AdminDevicesRoute: typeof AdminDevicesRoute
+  AdminDistrictRoute: typeof AdminDistrictRoute
+  AdminSignupRoute: typeof AdminSignupRoute
+  AdminStateRoute: typeof AdminStateRoute
+  AdminTechnicianRoute: typeof AdminTechnicianRoute
+  AdminIndexRoute: typeof AdminIndexRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/users': {
+      id: '/users'
+      path: '/users'
+      fullPath: '/users'
+      preLoaderRoute: typeof UsersRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/status': {
+      id: '/status'
+      path: '/status'
+      fullPath: '/status'
+      preLoaderRoute: typeof StatusRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/signup': {
+      id: '/signup'
+      path: '/signup'
+      fullPath: '/signup'
+      preLoaderRoute: typeof SignupRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/reports': {
+      id: '/reports'
+      path: '/reports'
+      fullPath: '/reports'
+      preLoaderRoute: typeof ReportsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/maps': {
+      id: '/maps'
+      path: '/maps'
+      fullPath: '/maps'
+      preLoaderRoute: typeof MapsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/login': {
+      id: '/login'
+      path: '/login'
+      fullPath: '/login'
+      preLoaderRoute: typeof LoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/devices': {
+      id: '/devices'
+      path: '/devices'
+      fullPath: '/devices'
+      preLoaderRoute: typeof DevicesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/alerts': {
+      id: '/alerts'
+      path: '/alerts'
+      fullPath: '/alerts'
+      preLoaderRoute: typeof AlertsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -48,22 +290,68 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/admin/': {
+      id: '/admin/'
+      path: '/admin'
+      fullPath: '/admin/'
+      preLoaderRoute: typeof AdminIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/technician': {
+      id: '/admin/technician'
+      path: '/admin/technician'
+      fullPath: '/admin/technician'
+      preLoaderRoute: typeof AdminTechnicianRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/state': {
+      id: '/admin/state'
+      path: '/admin/state'
+      fullPath: '/admin/state'
+      preLoaderRoute: typeof AdminStateRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/signup': {
+      id: '/admin/signup'
+      path: '/admin/signup'
+      fullPath: '/admin/signup'
+      preLoaderRoute: typeof AdminSignupRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/district': {
+      id: '/admin/district'
+      path: '/admin/district'
+      fullPath: '/admin/district'
+      preLoaderRoute: typeof AdminDistrictRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/devices': {
+      id: '/admin/devices'
+      path: '/admin/devices'
+      fullPath: '/admin/devices'
+      preLoaderRoute: typeof AdminDevicesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AlertsRoute: AlertsRoute,
+  DevicesRoute: DevicesRoute,
+  LoginRoute: LoginRoute,
+  MapsRoute: MapsRoute,
+  ReportsRoute: ReportsRoute,
+  SignupRoute: SignupRoute,
+  StatusRoute: StatusRoute,
+  UsersRoute: UsersRoute,
+  AdminDevicesRoute: AdminDevicesRoute,
+  AdminDistrictRoute: AdminDistrictRoute,
+  AdminSignupRoute: AdminSignupRoute,
+  AdminStateRoute: AdminStateRoute,
+  AdminTechnicianRoute: AdminTechnicianRoute,
+  AdminIndexRoute: AdminIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
