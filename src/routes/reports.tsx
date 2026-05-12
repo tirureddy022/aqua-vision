@@ -9,6 +9,7 @@ import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { FileText, FileSpreadsheet, Printer, TrendingUp, TrendingDown } from "lucide-react";
 import { ResponsiveContainer, LineChart, Line, AreaChart, Area, Tooltip, XAxis, YAxis } from "recharts";
+import { toast } from "sonner";
 
 export const Route = createFileRoute("/reports")({
   head: () => ({
@@ -37,9 +38,9 @@ function ReportsPage() {
             <TabsTrigger value="power">Power utilization</TabsTrigger>
           </TabsList>
           <div className="flex gap-2">
-            <Button variant="outline" size="sm"><FileText className="h-4 w-4 mr-1" />PDF</Button>
-            <Button variant="outline" size="sm"><FileSpreadsheet className="h-4 w-4 mr-1" />Excel</Button>
-            <Button variant="outline" size="sm"><Printer className="h-4 w-4 mr-1" />Print</Button>
+            <Button variant="outline" size="sm" onClick={() => toast.success("PDF export started", { description: "Your report will download shortly." })}><FileText className="h-4 w-4 mr-1" />PDF</Button>
+            <Button variant="outline" size="sm" onClick={() => toast.success("Excel export started")}><FileSpreadsheet className="h-4 w-4 mr-1" />Excel</Button>
+            <Button variant="outline" size="sm" onClick={() => window.print()}><Printer className="h-4 w-4 mr-1" />Print</Button>
           </div>
         </div>
 
