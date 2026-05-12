@@ -11,6 +11,7 @@ import {
 } from "@/components/ui/table";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import { Cpu, Wifi, WifiOff, Power, PowerOff, MoreHorizontal, Plus, Search, CircleDot } from "lucide-react";
+import { toast } from "sonner";
 
 export const Route = createFileRoute("/devices")({
   head: () => ({
@@ -54,7 +55,7 @@ function DevicesPage() {
               <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
               <Input placeholder="Search devices…" className="pl-9 h-9" />
             </div>
-            <Button className="bg-gradient-primary"><Plus className="h-4 w-4 mr-1" />Add device</Button>
+            <Button className="bg-gradient-primary" onClick={() => toast.success("New device form opened")}><Plus className="h-4 w-4 mr-1" />Add device</Button>
           </div>
           <div className="overflow-x-auto">
             <Table>
@@ -90,12 +91,12 @@ function DevicesPage() {
                           <Button variant="ghost" size="icon"><MoreHorizontal className="h-4 w-4" /></Button>
                         </DropdownMenuTrigger>
                         <DropdownMenuContent align="end">
-                          <DropdownMenuItem>View details</DropdownMenuItem>
-                          <DropdownMenuItem>Edit device</DropdownMenuItem>
-                          <DropdownMenuItem>Assign technician</DropdownMenuItem>
-                          <DropdownMenuItem>Map location</DropdownMenuItem>
-                          <DropdownMenuItem>History</DropdownMenuItem>
-                          <DropdownMenuItem className="text-destructive">Deactivate</DropdownMenuItem>
+                          <DropdownMenuItem onClick={() => toast(`Device ${d.id} details`)}>View details</DropdownMenuItem>
+                          <DropdownMenuItem onClick={() => toast(`Edit ${d.id}`)}>Edit device</DropdownMenuItem>
+                          <DropdownMenuItem onClick={() => toast.success(`Technician assigned to ${d.id}`)}>Assign technician</DropdownMenuItem>
+                          <DropdownMenuItem onClick={() => toast(`Locating ${d.id} on map…`)}>Map location</DropdownMenuItem>
+                          <DropdownMenuItem onClick={() => toast(`Showing history for ${d.id}`)}>History</DropdownMenuItem>
+                          <DropdownMenuItem className="text-destructive" onClick={() => toast.error(`${d.id} deactivated`)}>Deactivate</DropdownMenuItem>
                         </DropdownMenuContent>
                       </DropdownMenu>
                     </TableCell>

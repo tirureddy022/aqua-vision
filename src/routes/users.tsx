@@ -9,6 +9,7 @@ import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import { Users, UserCheck, UserMinus, Wrench, Shield, Briefcase, MoreHorizontal, Plus, Search } from "lucide-react";
+import { toast } from "sonner";
 
 export const Route = createFileRoute("/users")({
   head: () => ({
@@ -47,7 +48,7 @@ function UsersPage() {
               <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
               <Input placeholder="Search users…" className="pl-9 h-9" />
             </div>
-            <Button className="bg-gradient-primary"><Plus className="h-4 w-4 mr-1" />Add user</Button>
+            <Button className="bg-gradient-primary" onClick={() => toast.success("Add user form opened")}><Plus className="h-4 w-4 mr-1" />Add user</Button>
           </div>
           <div className="overflow-x-auto">
             <Table>
@@ -91,11 +92,11 @@ function UsersPage() {
                           <Button variant="ghost" size="icon"><MoreHorizontal className="h-4 w-4" /></Button>
                         </DropdownMenuTrigger>
                         <DropdownMenuContent align="end">
-                          <DropdownMenuItem>View profile</DropdownMenuItem>
-                          <DropdownMenuItem>Edit user</DropdownMenuItem>
-                          <DropdownMenuItem>Reset password</DropdownMenuItem>
-                          <DropdownMenuItem>Assign role</DropdownMenuItem>
-                          <DropdownMenuItem className="text-destructive">Deactivate</DropdownMenuItem>
+                          <DropdownMenuItem onClick={() => toast(`Profile: ${u.name}`)}>View profile</DropdownMenuItem>
+                          <DropdownMenuItem onClick={() => toast(`Edit ${u.name}`)}>Edit user</DropdownMenuItem>
+                          <DropdownMenuItem onClick={() => toast.success(`Reset link sent to ${u.email}`)}>Reset password</DropdownMenuItem>
+                          <DropdownMenuItem onClick={() => toast(`Assign role to ${u.name}`)}>Assign role</DropdownMenuItem>
+                          <DropdownMenuItem className="text-destructive" onClick={() => toast.error(`${u.name} deactivated`)}>Deactivate</DropdownMenuItem>
                         </DropdownMenuContent>
                       </DropdownMenu>
                     </TableCell>
