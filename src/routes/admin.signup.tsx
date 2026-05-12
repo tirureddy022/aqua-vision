@@ -4,6 +4,7 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@
 import { Button } from "@/components/ui/button";
 import { Check, X, Eye } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
+import { toast } from "sonner";
 
 export const Route = createFileRoute("/admin/signup")({
   head: () => ({ meta: [{ title: "Signup requests — AquaMonitor" }] }),
@@ -47,9 +48,9 @@ function SignupAdmin() {
                   </Badge>
                 </TableCell>
                 <TableCell className="text-right space-x-1">
-                  <Button variant="ghost" size="icon"><Eye className="h-4 w-4" /></Button>
-                  <Button variant="ghost" size="icon"><Check className="h-4 w-4 text-success" /></Button>
-                  <Button variant="ghost" size="icon"><X className="h-4 w-4 text-destructive" /></Button>
+                  <Button variant="ghost" size="icon" onClick={() => toast(`View ${r.name}'s request`)}><Eye className="h-4 w-4" /></Button>
+                  <Button variant="ghost" size="icon" onClick={() => toast.success(`${r.name} approved`)}><Check className="h-4 w-4 text-success" /></Button>
+                  <Button variant="ghost" size="icon" onClick={() => toast.error(`${r.name} rejected`)}><X className="h-4 w-4 text-destructive" /></Button>
                 </TableCell>
               </TableRow>
             ))}
