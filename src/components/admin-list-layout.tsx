@@ -4,16 +4,19 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Plus, Search } from "lucide-react";
 import { DashboardShell } from "@/components/dashboard-shell";
+import { toast } from "sonner";
 
 export function AdminListLayout({
   title,
   description,
   addLabel,
+  onAdd,
   children,
 }: {
   title: string;
   description: string;
   addLabel: string;
+  onAdd?: () => void;
   children: ReactNode;
 }) {
   return (
@@ -25,7 +28,12 @@ export function AdminListLayout({
               <h2 className="text-lg font-semibold tracking-tight">{title}</h2>
               <p className="text-sm text-muted-foreground">{description}</p>
             </div>
-            <Button className="bg-gradient-primary"><Plus className="h-4 w-4 mr-1" />{addLabel}</Button>
+            <Button
+              className="bg-gradient-primary"
+              onClick={() => (onAdd ? onAdd() : toast.success(`${addLabel} form opened`))}
+            >
+              <Plus className="h-4 w-4 mr-1" />{addLabel}
+            </Button>
           </div>
         </Card>
 
@@ -42,3 +50,4 @@ export function AdminListLayout({
     </DashboardShell>
   );
 }
+
