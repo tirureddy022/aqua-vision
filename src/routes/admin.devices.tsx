@@ -4,6 +4,7 @@ import { StatusBadge } from "@/components/status-badge";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Button } from "@/components/ui/button";
 import { Pencil, Trash2, MapPin } from "lucide-react";
+import { toast } from "sonner";
 
 export const Route = createFileRoute("/admin/devices")({
   head: () => ({ meta: [{ title: "Device registration — AquaMonitor" }] }),
@@ -45,8 +46,8 @@ function DeviceRegistration() {
                 <TableCell className="text-xs text-muted-foreground flex items-center gap-1"><MapPin className="h-3 w-3" />15.3°N • 75.1°E</TableCell>
                 <TableCell><StatusBadge status={r.reg} /></TableCell>
                 <TableCell className="text-right space-x-1">
-                  <Button variant="ghost" size="icon"><Pencil className="h-4 w-4" /></Button>
-                  <Button variant="ghost" size="icon"><Trash2 className="h-4 w-4 text-destructive" /></Button>
+                  <Button variant="ghost" size="icon" onClick={() => toast(`Edit ${r.id}`)}><Pencil className="h-4 w-4" /></Button>
+                  <Button variant="ghost" size="icon" onClick={() => toast.error(`${r.id} removed`)}><Trash2 className="h-4 w-4 text-destructive" /></Button>
                 </TableCell>
               </TableRow>
             ))}

@@ -162,7 +162,7 @@ function DashboardPage() {
           <div className="flex items-center justify-between p-3 text-xs text-muted-foreground border-t">
             <span>Showing 8 of 342 schemes</span>
             <div className="flex items-center gap-2">
-              <button className="rounded-md border px-2 py-1 hover:bg-muted">Prev</button>
+              <button onClick={() => {}} className="rounded-md border px-2 py-1 hover:bg-muted">Prev</button>
               <button className="rounded-md border bg-primary px-2 py-1 text-primary-foreground">1</button>
               <button className="rounded-md border px-2 py-1 hover:bg-muted">2</button>
               <button className="rounded-md border px-2 py-1 hover:bg-muted">3</button>

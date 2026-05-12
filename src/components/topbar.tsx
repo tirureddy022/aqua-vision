@@ -30,8 +30,9 @@ const titles: Record<string, string> = {
 export function Topbar() {
   const { theme, toggle } = useTheme();
   const path = useRouterState({ select: (r) => r.location.pathname });
-  const [now, setNow] = useState(new Date());
+  const [now, setNow] = useState<Date | null>(null);
   useEffect(() => {
+    setNow(new Date());
     const i = setInterval(() => setNow(new Date()), 1000);
     return () => clearInterval(i);
   }, []);
@@ -68,17 +69,19 @@ export function Topbar() {
             />
           </div>
 
-          <div className="hidden lg:flex flex-col items-end text-right leading-tight">
-            <span className="text-xs font-medium tabular-nums">
-              {now.toLocaleTimeString()}
+          <div className="hidden lg:flex flex-col items-end text-right leading-tight min-w-[120px]" suppressHydrationWarning>
+            <span className="text-xs font-medium tabular-nums" suppressHydrationWarning>
+              {now ? now.toLocaleTimeString() : "—"}
             </span>
-            <span className="text-[10px] text-muted-foreground">
-              {now.toLocaleDateString(undefined, {
-                weekday: "short",
-                day: "numeric",
-                month: "short",
-                year: "numeric",
-              })}
+            <span className="text-[10px] text-muted-foreground" suppressHydrationWarning>
+              {now
+                ? now.toLocaleDateString(undefined, {
+                    weekday: "short",
+                    day: "numeric",
+                    month: "short",
+                    year: "numeric",
+                  })
+                : ""}
             </span>
           </div>
 

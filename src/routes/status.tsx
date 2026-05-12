@@ -16,6 +16,7 @@ import {
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import { Cpu, Power, PowerOff, Zap, ZapOff, MoreHorizontal, Filter, RefreshCw, Search, Droplet, Clock, Gauge } from "lucide-react";
 import { useState } from "react";
+import { toast } from "sonner";
 
 export const Route = createFileRoute("/status")({
   head: () => ({
@@ -79,8 +80,8 @@ function StatusPage() {
               <Input readOnly value={today} />
             </div>
             <div className="flex gap-2">
-              <Button className="bg-gradient-primary flex-1"><Filter className="h-4 w-4 mr-1" />Get data</Button>
-              <Button variant="outline" size="icon"><RefreshCw className="h-4 w-4" /></Button>
+              <Button className="bg-gradient-primary flex-1" onClick={() => toast.success("Data fetched", { description: "Latest scheme telemetry loaded." })}><Filter className="h-4 w-4 mr-1" />Get data</Button>
+              <Button variant="outline" size="icon" onClick={() => toast("Refreshing…")}><RefreshCw className="h-4 w-4" /></Button>
             </div>
           </div>
         </Card>
